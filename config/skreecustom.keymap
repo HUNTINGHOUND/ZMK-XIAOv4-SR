@@ -45,13 +45,13 @@
 
         layer_1 {
             bindings = <
-                &trans  &trans  &trans  &trans                 &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans                 &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                 &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans                  &bootloader                    &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                 &trans
-                                &trans  &trans                 &trans  &trans  &trans
+                &trans  &trans  &trans  &trans                 &trans    &trans    &kp EQUAL  &kp GRAVE
+        &trans  &trans  &trans  &trans  &trans                 &trans    &trans    &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans                 &mkp MB1  &mkp MB2  &trans     &trans     &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans                 &trans    &trans    &trans     &trans     &trans            &trans
+&trans  &trans  &trans  &trans                  &bootloader                        &trans     &trans     &kp LEFT_BRACKET  &kp RIGHT_BRACE
+                        &trans  &trans  &trans                                     &trans
+                                &trans  &trans                 &trans    &trans    &trans
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
@@ -83,6 +83,30 @@
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
+        };
+
+        layer_4 {
+            bindings = <
+                &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans                  &trans                    &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                            &trans
+                                &trans  &trans            &trans  &trans  &trans
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+                &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans                  &trans                    &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                            &trans
+                                &trans  &trans            &trans  &trans  &trans
+            >;
         };
     };
 };
