@@ -8,7 +8,7 @@ if(CONFIG_ZMK_BEHAVIOR_MSC_TEMP_LAYER)
 
   zephyr_library_sources(src/behavior_msc_temp_layer.c)
 
-  if(TARGET zmk)
-    zephyr_library_link_libraries(zmk)
-  endif()
+  # zmk app library is built later in the configure cycle; defer the link
+  # without the TARGET guard so CMake resolves it at link time.
+  zephyr_library_link_libraries(zmk)
 endif()
