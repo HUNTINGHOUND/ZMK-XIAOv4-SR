@@ -1,14 +1,6 @@
-if(CONFIG_ZMK_BEHAVIOR_MSC_TEMP_LAYER)
-  zephyr_library_named(behavior_msc_temp_layer)
-
-  # Pull in ZMK app headers (zmk/keymap.h, zmk/behavior.h, etc.).
-  if(EXISTS ${ZEPHYR_BASE}/../zmk/app/include)
-    zephyr_library_include_directories(${ZEPHYR_BASE}/../zmk/app/include)
-  endif()
-
-  zephyr_library_sources(src/behavior_msc_temp_layer.c)
-
-  # zmk app library is built later in the configure cycle; defer the link
-  # without the TARGET guard so CMake resolves it at link time.
-  zephyr_library_link_libraries(zmk)
-endif()
+# Add our behavior source directly to the `app` target so it links into
+# the ZMK application binary alongside zmk_keymap_layer_activate/_deactivate
+# (which are static-linked into app, not exported as a separate library).
+# This is the same pattern used by infused-kim/kb_zmk_ps2_mouse_trackpoint_driver.
+target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_MSC_TEMP_LAYER app PRIVATE
+    src/behavior_msc_temp_layer.c)
