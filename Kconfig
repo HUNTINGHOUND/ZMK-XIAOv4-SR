@@ -1,0 +1,9 @@
+config ZMK_BEHAVIOR_MSC_TEMP_LAYER
+    bool "Mouse-scroll behavior that also keeps a temp layer alive"
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_MSC_TEMP_LAYER_ENABLED
+    depends on ZMK_POINTING
+    help
+      Each invocation emits a wheel event AND (re-)activates a configured
+      keymap layer for a configured duration, so encoder rotation can keep
+      the mouse layer alive without trackball motion.

@@ -79,7 +79,7 @@
 	<&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
 	<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
 	//<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-	<&zip_temp_layer 3 2000>;
+	<&zip_temp_layer 3 500>;
     };
 //left hand trackball
     trackball_central_listener: trackball_central_listener {

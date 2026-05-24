@@ -1,0 +1,20 @@
+description: |
+  Mouse scroll wheel behavior that also keeps a temporary keymap layer
+  alive. Takes one parameter: the same MOVE_X/MOVE_Y-encoded scroll value
+  that `&msc` accepts (e.g. SCRL_UP, SCRL_DOWN). On each invocation,
+  emits an INPUT_REL_WHEEL/HWHEEL event and reschedules the layer's
+  auto-disable timer.
+
+compatible: "zmk,behavior-msc-temp-layer"
+
+include: one_param.yaml
+
+properties:
+  layer:
+    type: int
+    required: true
+    description: Index of the keymap layer to keep alive.
+  time-ms:
+    type: int
+    default: 500
+    description: Milliseconds to keep the layer active after the last invocation.
