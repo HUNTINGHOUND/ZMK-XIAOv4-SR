@@ -2,25 +2,13 @@
 // Review before flashing. Copy any extra layers from your existing
 // .keymap if you need them — only the layers below are emitted.
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 140
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
-#include <dt-bindings/zmk/mouse.h>
 
 / {
     behaviors {
-        mouse_scroll: sensor_scroll {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-            tap-ms = <5>;
-        };
-
         hm: home_row_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -84,8 +72,7 @@
                 &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
     };
 };
-
