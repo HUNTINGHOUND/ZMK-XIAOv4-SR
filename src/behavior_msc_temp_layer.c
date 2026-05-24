@@ -55,7 +55,7 @@ static void disable_layer_cb(struct k_work *work) {
 
     if (data->layer_active) {
         LOG_DBG("Deactivating layer %d (timer expired)", cfg->layer);
-        zmk_keymap_layer_deactivate(cfg->layer);
+        zmk_keymap_layer_deactivate(zmk_keymap_layer_index_to_id(cfg->layer));
         data->layer_active = false;
     }
 }
@@ -91,7 +91,7 @@ static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
     if (cfg->layer < MAX_LAYERS) {
         if (!data->layer_active) {
             LOG_DBG("Activating layer %d", cfg->layer);
-            zmk_keymap_layer_activate(cfg->layer);
+            zmk_keymap_layer_activate(zmk_keymap_layer_index_to_id(cfg->layer));
             data->layer_active = true;
         }
         k_work_reschedule(&data->disable_work, K_MSEC(cfg->time_ms));

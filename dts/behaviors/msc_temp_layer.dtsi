@@ -12,4 +12,14 @@
             time-ms = <500>;
         };
     };
+
+    /* The behavior reports INPUT_REL_WHEEL/HWHEEL events on its own
+     * device. An input-listener on this device forwards them to the
+     * HID subsystem, mirroring how msc_input_listener is wired for
+     * &msc upstream. Without this listener the events go nowhere.
+     */
+    msc_layer_input_listener: msc_layer_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&msc_layer>;
+    };
 };
