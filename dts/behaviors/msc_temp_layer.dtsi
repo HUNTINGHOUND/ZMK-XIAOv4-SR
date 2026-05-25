@@ -7,7 +7,7 @@
     behaviors {
         /omit-if-no-ref/ msc_layer: msc_layer {
             compatible = "zmk,behavior-msc-temp-layer";
-            #binding-cells = <1>;
+            #sensor-binding-cells = <2>;
             layer = <3>;
             time-ms = <500>;
         };

@@ -1,0 +1,6 @@
+# west-managed dependencies (cloned via `west update` for local builds)
+.west/
+zephyr/
+zmk/
+zmk-pmw3610-driver/
+modules/

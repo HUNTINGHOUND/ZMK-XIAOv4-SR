@@ -1,15 +1,27 @@
 description: |
-  Mouse scroll wheel behavior that also keeps a temporary keymap layer
-  alive. Takes one parameter: the same MOVE_X/MOVE_Y-encoded scroll value
-  that `&msc` accepts (e.g. SCRL_UP, SCRL_DOWN). On each invocation,
-  emits an INPUT_REL_WHEEL/HWHEEL event and reschedules the layer's
-  auto-disable timer.
+  Mouse scroll wheel behavior bound directly to a sensor (no
+  sensor-rotate-var wrapper). Two params: CW value and CCW value, both
+  in MOVE_X/MOVE_Y encoding (e.g. SCRL_UP / SCRL_DOWN).
+
+  On every raw sensor event (called via accept_data), reschedules the
+  layer-disable timer so even slow rotations keep the layer alive
+  between trigger crossings.
+
+  On a trigger crossing (called via process when in TRIGGER mode), emits
+  one INPUT_REL_WHEEL/HWHEEL event with the appropriate sign and
+  re-activates the layer if it was deactivated by another mechanism.
 
 compatible: "zmk,behavior-msc-temp-layer"
 
-include: one_param.yaml
-
 properties:
+  label:
+    type: string
+    required: false
+    deprecated: true
+  "#sensor-binding-cells":
+    type: int
+    required: true
+    const: 2
   layer:
     type: int
     required: true
@@ -17,4 +29,8 @@ properties:
   time-ms:
     type: int
     default: 500
-    description: Milliseconds to keep the layer active after the last invocation.
+    description: Milliseconds to keep the layer active after the last raw sensor event.
+
+sensor-binding-cells:
+  - param1
+  - param2

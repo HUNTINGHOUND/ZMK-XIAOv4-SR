@@ -15,13 +15,6 @@
 
 / {
     behaviors {
-        mouse_scroll: sensor_scroll {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc_layer>, <&msc_layer>;
-            tap-ms = <50>;
-        };
-
         hm: home_row_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -85,7 +78,7 @@
                 &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&msc_layer SCRL_DOWN SCRL_UP>;
         };
     };
 };
