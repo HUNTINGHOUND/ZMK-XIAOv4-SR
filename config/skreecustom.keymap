@@ -78,10 +78,10 @@
             bindings = <
                            &kp N2      &kp N3      &kp N4       &kp N5                 &kp N6   &kp N7       &kp N8      &kp N9
               &kp N1       &kp W       &kp E       &kp R        &kp T                  &kp Y    &kp U        &kp I       &kp O       &kp N0
-&kp ESCAPE    &kp Q        &hm LALT S  &hm LGUI D  &hm LSHFT F  &kp G                  &kp H    &hm LSHFT J  &hm LGUI K  &hm LALT L  &kp P           &trans
+&kp ESCAPE    &kp Q        &hm LALT S  &hm LGUI D  &hm LSHFT F  &kp G                  &kp H    &hm LSHFT J  &hm LGUI K  &hm LALT L  &kp P           &kp MINUS
 &kp TAB       &hm LCTRL A  &kp X       &kp C       &kp V        &kp B                  &kp N    &kp M        &kp COMMA   &kp DOT     &hm LCTRL SEMI  &kp SINGLE_QUOTE
 &kp CAPSLOCK  &kp Z        &kp LEFT    &kp RIGHT                         &kp C_MUTE                          &kp DOWN    &kp UP      &kp FSLH        &caps_word
-                                       &mo 5       &kp SPACE    &mo 2                                        &mo 1
+                                       &mo 2       &kp SPACE    &mo 5                                        &mo 1
                                                    &mo 4        &kp ESC                &kp DEL  &kp RET      &kp BSPC
             >;
 
